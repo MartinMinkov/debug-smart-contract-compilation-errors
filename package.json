@@ -14,6 +14,7 @@
   "main": "build/src/index.js",
   "types": "build/src/index.d.ts",
   "scripts": {
+    "start": "npm run build && node build/src/interact.js",
     "build": "tsc",
     "buildw": "tsc --watch",
     "coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage",
@@ -36,6 +37,6 @@
     "typescript": "^4.7.2"
   },
   "peerDependencies": {
-    "o1js": "0.15.*"
+    "o1js": "file://home/martin/Code/o1/o1js"
   }
 }

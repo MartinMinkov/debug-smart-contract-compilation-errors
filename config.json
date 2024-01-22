@@ -1,4 +1,13 @@
 {
   "version": 1,
-  "deployAliases": {}
+  "deployAliases": {
+    "local": {
+      "url": "http://localhost:8080/graphql",
+      "keyPath": "keys/local.json",
+      "feepayerKeyPath": "keys/local-feepayer.json",
+      "feepayerAlias": "berkeley-feepayer",
+      "fee": "0.1",
+      "smartContract": "E2eZkApp"
+    }
+  }
 }
