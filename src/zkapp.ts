@@ -69,15 +69,10 @@ export class E2eZkApp extends SmartContract {
     );
   }
 
-  @method update(squared: Field, delegatePrivateKey: PrivateKey) {
-    const zkAppState = this.zkAppState1.get();
-    const delegatePublicKey = delegatePrivateKey.toPublicKey();
-
-    this.zkAppState1.assertNothing();
-    zkAppState.square().assertEquals(squared);
+  @method update() {
+    const zkAppState = this.zkAppState1.getAndRequireEquals();
+    const squared = zkAppState.square();
     this.zkAppState1.set(squared);
-
-    this.account.delegate.assertEquals(delegatePublicKey);
     this.emitEvent('zkAppStateUpdate', Field(1));
   }
 

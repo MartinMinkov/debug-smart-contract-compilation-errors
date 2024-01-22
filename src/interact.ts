@@ -13,7 +13,7 @@
  * Run with node:     `$ node build/src/interact.js <deployAlias>`.
  */
 import fs from 'fs/promises';
-import { Mina, PrivateKey, Field } from 'o1js';
+import { Mina, PrivateKey } from 'o1js';
 import { E2eZkApp } from './zkapp.js';
 
 // check command line arg
@@ -85,7 +85,7 @@ try {
   // call update() and send transaction
   console.log('build transaction and create proof...');
   let tx = await Mina.transaction({ sender: feepayerAddress, fee }, () => {
-    zkApp.update(Field(4), feepayerKey);
+    zkApp.update();
   });
   await tx.prove();
   console.log('send transaction...');
